@@ -4,7 +4,6 @@ html {
 	background: linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	background-repeat: no-repeat;
 	background-size: cover;
-	/*background-image: url(topo.svg);*/
 	width: 100%;
 	height: 100%;
 }
