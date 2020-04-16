@@ -1,0 +1,83 @@
+html {
+	background: white;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	width: 100%;
+	height: 100%;
+}
+
+#section {
+	line-height: 150%;
+	text-align: center;
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 73%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+#projects {
+	line-height: 120%;
+	text-align: justify;
+	display: block;
+	position: absolute;
+	margin: auto;
+	width: 80%;
+	height: 97%;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+h1 {
+	font-weight: 500;
+	font-size: 2.3em;
+}
+
+table {
+	margin: auto;
+	color: black;
+	font-family: Helvetica, 'Century Gothic', Arial, sans-serif;
+	font-weight: 300;
+	word-spacing: 2px;
+}
+
+p.citation {
+	font-size: x-small;
+	line-height: 120%;
+}
+
+a.dark:link, a.dark:visited {
+	text-decoration: none;
+	color: black;
+}
+
+a.dark:hover, a.dark:active {
+	text-decoration: none;
+	color: #6f8573;
+}
+
+a.green:link, a.green:visited {
+	text-decoration: none;
+	color: #6f8573;
+}
+
+a.green:hover, a.green:active {
+	text-decoration: none;
+	color: #424242;
+}
+
+a.img {
+	color: black;
+}
+
+img {
+	/*border-radius: 50%;*/
+	box-shadow: 0 0 5px #ccc;
+}
+
