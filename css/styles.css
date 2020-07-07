@@ -35,13 +35,8 @@ html {
 }
 
 h1 {
-	font-weight: 500;
-	font-size: 2.3em;
-}
-
-p.citation {
-	font-size: x-small;
-	line-height: 120%;
+	font-weight: 300;
+	font-size: 2.5em;
 }
 
 a.dark:link, a.dark:visited {
@@ -63,13 +58,3 @@ a.green:hover, a.green:active {
 	text-decoration: none;
 	color: #424242;
 }
-
-a.img {
-	color: black;
-}
-
-img {
-	/*border-radius: 50%;*/
-	box-shadow: 0 0 5px #ccc;
-}
-
