@@ -1,85 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"> 
-  <link rel="stylesheet" href="css/projects.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="icon" href="img/bitmoji.png" type="image" sizes="16x16">
-  <title>Seth Gorelik | Projects</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">	
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="icon" href="img/bitmoji.png" type="image" sizes="16x16">
+	<title>Seth Gorelik | Projects</title>
 </head>
-
 <body>
-
-  <div class="main">
-
-    <!-- Header -->
-    <div class="headline animated fadeIn">
-      <h2 class="alignleft"><a class="dark" href="index.html">Seth Gorelik</a></h2>
-      <p class="alignright">Projects</p>
-    </div>
-
-    <div style="clear: both;"></div>
-
-    <hr style="border: 0.25px solid #e0e0e0; margin: 0px 0px 10px 0px;">
-
-    <!-- Portfolio Grid -->
-    <div class="row animated fadeInUp">
-
-      <div class="column">
-        <div class="content">
-          <a href="covid19usa.html">
-            <img src="img/covid19_app.png" alt="Covid19 App">
-          </a>
-          <h3>U.S. Covid-19 Tracker</h3>
-          <p>An interactive web platform for visualizing the latest numbers on the 2020 Covid-19 outbreak in the United Stated. The source data is obtained from the <a class="dark" href="https://github.com/nytimes/covid-19-data" target="_blank">The New York Times</a> and is based on reports from state and local health agencies.</p>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="content">
-          <a href="https://doi.org/10.1073/pnas.1913321117" target="_blank">
-            <img src="img/Walker_etal_2020_PNAS.png" alt="Lights">
-          </a>
-          <h3>Amazon Forest Carbon Dynamics</h3>
-          <p>A recently published study I co-authored. We reported changes in forest carbon across the Amazon basin and our findings indicate that increased protection of indigenous land rights and better monitoring and <span id="dots1">...</span><span id="more1">management of emissions from forest degradation are needed if Amazon basin countries are to achieve their commitments under the Paris Agreement.<br><br><i class="citation">For more info, please see paper:<br>Walker, W. S., S. R. Gorelik, A. Baccini, J. L. Aragon-Osejo, C. Josse, C. Meyer, M. N. Macedo, C. Augusto, S. Rios, T. Katan, A. A. de Souza, S. Cuellar, A. Llanos, I. Zager, G. D. Mirabal, K. K. Solvik, M. K. Farina, P. Moutinho, and S. Schwartzman. 2020. The role of forest conversion, degradation, and disturbance in the carbon dynamics of Amazon indigenous territories and protected areas. Proceedings of the National Academy of Sciences 117:3015–3025. <a class="dark" href="https://doi.org/10.1073/pnas.1913321117" target="_blank">https://doi.org/10.1073/pnas.1913321117</a>.</i><br><br></span>
-          <button onclick="myFunction('dots1', 'more1', 'myBtn1')" id="myBtn1" class="button">[more]</button></p>
-        </div>
-      </div>
-
-      <div class="column">
-        <div class="content">
-          <a href="http://dx.doi.org/10.13140/RG.2.2.12489.49766" target="_blank">
-            <img src="img/Gorelik_2017_UI.png" alt="Nature">
-          </a>
-          <h3>Drought-Induced Tree Mortality</h3>
-          <p>In the early 2000s, severe drought and beetle outbreaks brought on by climate change led to extensive piñon pine mortality in northern New Mexico. Mapping piñon mortality is critical for understanding and monitoring <span id="dots2">...</span><span id="more2">impacts to ecosystem services. Here, in my Master's thesis, I used Landsat imagery, finer-resolution reference data, and statistical modeling to predict absolute within-pixel percent tree mortality (PTM). I found that a balanced random forest model had the highest accuracy. I applied the model to a time series and assessed spatial and temporal patterns of the estimated tree mortality. This work demonstrates the capability of mapping drought-induced PTM using Landsat time series imagery.<br><br></span>
-          <button onclick="myFunction('dots2', 'more2', 'myBtn2')" id="myBtn2" class="button">[more]</button></p>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <script>
-    function myFunction(dotsId, moreId, btnId) {
-      var dots = document.getElementById(dotsId);
-      var moreText = document.getElementById(moreId);
-      var btnText = document.getElementById(btnId);
-
-      if (dots.style.display === "none") {
-        dots.style.display = "inline";
-        btnText.innerHTML = "[more]"; 
-        moreText.style.display = "none";
-      } else {
-        dots.style.display = "none";
-        btnText.innerHTML = "[less]"; 
-        moreText.style.display = "inline";
-      }
-    }
-  </script>
-
+	<div id="section" class="animated fadeIn">
+		<h1>projects</h1>
+	    <a class="dark" href="https://sethgorelik.com/covid19usa" target="_blank">covid-19 in the united states</a>
+	    <br>
+	    <a class="dark" href="https://doi.org/10.1073/pnas.1913321117" target="_blank">forest carbon dynamics in amazon protected lands</a>
+	    <br>
+	    <a class="dark" href="http://dx.doi.org/10.13140/RG.2.2.12489.49766" target="_blank">drought-induced tree mortality in the southwest</a>
+	</div>
 </body>
 </html>
