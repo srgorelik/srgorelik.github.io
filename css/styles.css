@@ -24,9 +24,14 @@ html {
 	word-spacing: 2px;
 }
 
-.group {
+.group1 {
 	display: inline-block;
 	padding: 0px 20px 10px 0px;
+}
+
+.group2 {
+	display: inline-block;
+	padding: 0px 00px 10px 0px;
 }
 
 h1 {
