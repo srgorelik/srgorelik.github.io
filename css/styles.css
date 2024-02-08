@@ -1,8 +1,11 @@
 html {
 	scroll-behavior: smooth;
-	background: white;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: white;
+	/* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6);
+	/* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, white, white, #f0f0f0, #c4c4c4, #a2baa6);
+	/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
@@ -10,8 +13,8 @@ html {
 	height: 100%;
 }
 
-body { 
-	height: 100%; 
+body {
+	height: 100%;
 	margin: 0px;
 	font-family: Helvetica, 'Century Gothic', Arial, sans-serif;
 	font-weight: 300;
@@ -19,7 +22,7 @@ body {
 	line-height: 150%;
 }
 
-.container { 
+.container {
 	height: 100%;
 	position: relative;
 	text-align: center;
@@ -72,22 +75,26 @@ h2 {
 	font-size: 2em;
 }
 
-a.dark:link, a.dark:visited {
+a.dark:link,
+a.dark:visited {
 	text-decoration: none;
 	color: black;
 }
 
-a.dark:hover, a.dark:active {
+a.dark:hover,
+a.dark:active {
 	text-decoration: none;
 	color: #6f8573;
 }
 
-a.green:link, a.green:visited {
+a.green:link,
+a.green:visited {
 	text-decoration: none;
 	color: #6f8573;
 }
 
-a.green:hover, a.green:active {
+a.green:hover,
+a.green:active {
 	text-decoration: none;
 	color: #424242;
 }
@@ -103,8 +110,13 @@ a.green:hover, a.green:active {
 }
 
 @keyframes pulse {
-	0%   {top: 90%;}
-	100% {top: 92%;}
+	0% {
+		top: 90%;
+	}
+
+	100% {
+		top: 92%;
+	}
 }
 
 .fadeIn {
@@ -113,6 +125,11 @@ a.green:hover, a.green:active {
 }
 
 @keyframes fadeIn {
-	0%   {opacity: 0;}
-	100% {opacity: 1;}
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
