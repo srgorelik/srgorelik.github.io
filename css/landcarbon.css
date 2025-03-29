@@ -1,11 +1,43 @@
-body,
-html {
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+/*
+background color gradient animation adapted from code by Manuel Pinto:
+https://codepen.io/P1N2O/pen/pyBNzX
+
+with rotation animation adapted from code by Prince:
+https://stackoverflow.com/a/75648103
+*/
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+body {
+    /* background-color: black; */
+    background: linear-gradient(
+        var(--angle),
+        #ff7733 0%,
+        black 40%,
+        black 60%,
+        #898577 100%
+    );
+    background-size: 320%;
+    animation: gradient-rotate-slide 30s linear infinite;
+    height: 100vh;
     overflow: hidden;
+}
+
+@keyframes gradient-rotate-slide {
+    0% {
+        background-position: left 0% top 50%;
+        --angle: 0deg;
+    }
+    50% {
+        background-position: left 100% top 50%;
+    }
+    100% {
+        background-position: left 0% top 50%;
+        --angle: 360deg;
+    }
 }
 
 #app {
@@ -16,24 +48,37 @@ html {
     top: 0;
 }
 
+.logo {
+    width: 50%;
+    max-width: 180px;
+    margin-bottom: 40px;
+}
+
+.shadow {
+    filter: drop-shadow(0 0 50px 2px #282828);
+}
+
 /*
-progress bar loader adapted from:
+progress bar loader adapted from code by Jamie Juviler:
 https://blog.hubspot.com/website/css-loading-animation
 */
 
 .loader-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 90%;
 }
 
 .progress-bar {
     width: 80%;
-    max-width: 400px;
+    max-width: 300px;
     height: 20px;
     background-color: #e0e0e0;
-    border-radius: 10px;
+    border-radius: 12px;
+    /* border: 2px solid #e0e0e0; */
+    box-shadow: 0 0 50px 2px #282828;
     overflow: hidden;
 }
 
@@ -41,14 +86,42 @@ https://blog.hubspot.com/website/css-loading-animation
     width: 0;
     height: 100%;
     background-color: #ff5700;
-    animation: fill 30s infinite;
+    animation: fill 30s ease forwards; /* do not loop, leave in last state */
 }
 
+/* simulate realistict loading sequence */
 @keyframes fill {
     0% {
         width: 0;
     }
+    25% {
+        width: 40%;
+    }
+    50% {
+        width: 50%;
+    }
+    75% {
+        width: 85%;
+    }
     100% {
-        width: 100%;
+        width: 98%;
+    }
+}
+
+/* fade in logo */
+.flickerAnimation {
+    animation: flickerAnimation 5s infinite;
+    animation-delay: 2s;
+}
+
+@keyframes flickerAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        opacity: 1;
     }
 }
