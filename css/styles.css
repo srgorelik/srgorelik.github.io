@@ -1,39 +1,48 @@
-html {
-    scroll-behavior: smooth;
-    background: white;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to bottom,
-        white,
-        white,
-        #f0f0f0,
-        #c4c4c4,
-        #a2baa6
-    );
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to bottom,
-        white,
-        white,
-        #f0f0f0,
-        #c4c4c4,
-        #a2baa6
-    );
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    width: 100%;
-    height: 100%;
+/*
+background color gradient animation adapted from code by Manuel Pinto:
+https://codepen.io/P1N2O/pen/pyBNzX
+
+with rotation animation adapted from code by Prince:
+https://stackoverflow.com/a/75648103
+*/
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
 }
 
 body {
-    height: 100%;
-    margin: 0;
+    background: linear-gradient(
+        var(--angle),
+        #6ed9c2 10%,
+        #c4c4c4 40%,
+        #c4c4c4 60%,
+        #ffa269 90%
+    );
+    background-size: 250%;
+    animation: gradient-rotate-slide 25s linear infinite;
+    height: 100vh;
+    overflow: hidden;
+
+    /* text styles */
     font-family: Helvetica, "Century Gothic", Arial, sans-serif;
     font-weight: 300;
     word-spacing: 2px;
     line-height: 150%;
+}
+
+@keyframes gradient-rotate-slide {
+    0% {
+        background-position: left 0% top 50%;
+        --angle: 0deg;
+    }
+    50% {
+        background-position: left 100% top 50%;
+    }
+    100% {
+        background-position: left 0% top 50%;
+        --angle: 360deg;
+    }
 }
 
 .container {
@@ -42,33 +51,10 @@ body {
     text-align: center;
 }
 
-/* adds fading effect at top and bottom of container when scrolling up and down */
-.container:after {
-    content: "";
-    height: 20%;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(
-        to bottom,
-        rgba(251, 251, 251, 1) 0%,
-        rgba(251, 251, 251, 0) 100%
-    );
-    position: fixed;
-}
-
 .center {
     margin: 0;
     position: absolute;
     top: 30%;
-    left: 0;
-    right: 0;
-}
-
-.bottom-center {
-    margin: 0;
-    position: absolute;
-    top: 90%;
     left: 0;
     right: 0;
 }
@@ -86,55 +72,20 @@ body {
 h1 {
     font-weight: 300;
     font-size: 2.5em;
+    text-shadow: 0 0 20px #c4c4c4;
 }
 
-h2 {
-    font-weight: 300;
-    font-size: 2em;
-}
-
-a.dark:link,
-a.dark:visited {
-    text-decoration: none;
-    color: black;
-}
-
-a.dark:hover,
-a.dark:active {
-    text-decoration: none;
-    color: #6f8573;
-}
-
-a.green:link,
-a.green:visited {
-    text-decoration: none;
-    color: #6f8573;
-}
-
-a.green:hover,
-a.green:active {
+a.icon:link,
+a.icon:visited {
     text-decoration: none;
     color: #424242;
+    text-shadow: 0 0 10px #c4c4c4;
 }
 
-.waving {
-    position: relative;
-    animation-name: pulse;
-    animation-delay: 0.5s;
-    animation-duration: 1s;
-    animation-direction: alternate;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-}
-
-@keyframes pulse {
-    0% {
-        top: 90%;
-    }
-
-    100% {
-        top: 92%;
-    }
+a.icon:hover,
+a.icon:active {
+    text-decoration: none;
+    color: black;
 }
 
 .fadeIn {
