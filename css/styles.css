@@ -14,24 +14,40 @@ https://stackoverflow.com/a/75648103
 body {
     background: linear-gradient(
         var(--angle),
-        #6ed9c2 10%,
+        #ffa369 10%,
         #c4c4c4 40%,
         #c4c4c4 60%,
-        #ffa269 90%
+        #6ed9c2 90%
     );
-    background-size: 250%;
-    animation: gradient-rotate-slide 25s linear infinite;
+    background-size: 300%;
+    animation: gradientRotateSlide 25s ease infinite;
+    animation-direction: normal;
     height: 100vh;
     overflow: hidden;
+    margin: 0;
 
     /* text styles */
     font-family: Helvetica, "Century Gothic", Arial, sans-serif;
-    font-weight: 300;
     word-spacing: 2px;
     line-height: 150%;
 }
 
-@keyframes gradient-rotate-slide {
+/* overlay another color gradient going the opposite direction */
+#body2 {
+    background: linear-gradient(
+        var(--angle),
+        #fff94c50 10%,
+        #c4c4c450 40%,
+        #c4c4c450 60%,
+        #004ff950 90%
+    );
+    background-size: 400%;
+    animation: gradientRotateSlide 40s ease infinite;
+    animation-direction: reverse;
+    height: 100vh;
+}
+
+@keyframes gradientRotateSlide {
     0% {
         background-position: left 0% top 50%;
         --angle: 0deg;
@@ -72,13 +88,14 @@ body {
 h1 {
     font-weight: 300;
     font-size: 2.5em;
+    color: #212121;
     text-shadow: 0 0 20px #c4c4c4;
 }
 
 a.icon:link,
 a.icon:visited {
     text-decoration: none;
-    color: #424242;
+    color: #212121;
     text-shadow: 0 0 10px #c4c4c4;
 }
 
