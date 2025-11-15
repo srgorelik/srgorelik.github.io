@@ -5,15 +5,19 @@ https://codepen.io/P1N2O/pen/pyBNzX
 with rotation animation adapted from code by Prince:
 https://stackoverflow.com/a/75648103
 */
-@property --angle {
+@property --angle1 {
     syntax: "<angle>";
     initial-value: 0deg;
-    inherits: false;
+}
+
+@property --angle2 {
+    syntax: "<angle>";
+    initial-value: 90deg;
 }
 
 body {
     background: linear-gradient(
-        var(--angle),
+        var(--angle1),
         #ffa369 10%,
         #c4c4c4 40%,
         #c4c4c4 60%,
@@ -25,6 +29,7 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+    z-index: 100;
 
     /* text styles */
     font-family: Helvetica, "Century Gothic", Arial, sans-serif;
@@ -35,7 +40,7 @@ body {
 /* overlay another color gradient going the opposite direction */
 #body2 {
     background: linear-gradient(
-        var(--angle),
+        var(--angle2),
         #fff94c50 10%,
         #c4c4c450 40%,
         #c4c4c450 60%,
@@ -45,26 +50,40 @@ body {
     animation: gradientRotateSlide 40s ease infinite;
     animation-direction: reverse;
     height: 100vh;
+    z-index: 100;
 }
 
 @keyframes gradientRotateSlide {
     0% {
         background-position: left 0% top 50%;
-        --angle: 0deg;
     }
     50% {
         background-position: left 100% top 50%;
     }
     100% {
         background-position: left 0% top 50%;
-        --angle: 360deg;
     }
+}
+
+/* background overlay fade-in */
+#bg-fade {
+    position: fixed;
+    inset: 0;
+    background: #c4c4c4;
+    animation: fadeOutBg 6s ease forwards;
+    z-index: 200;
+}
+
+@keyframes fadeOutBg {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .container {
     height: 100%;
     position: relative;
     text-align: center;
+    z-index: 300;
 }
 
 .center {
