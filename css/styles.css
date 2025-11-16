@@ -30,7 +30,8 @@ defs path {
 
 .container {
     position: relative;
-    min-height: 100vh;
+    /* use real viewport height on mobile */
+    min-height: calc(var(--vh, 1vh) * 100);
 
     /* flexbox centering */
     display: flex;

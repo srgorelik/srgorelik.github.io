@@ -38,3 +38,10 @@ paths.forEach((p, i) => {
     });
 });
 document.querySelector('svg').style.opacity = 1;
+
+// fix mobile 100vh issue (address bar): set --vh to 1% of the actual viewport height
+function setVh() {
+    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+setVh();
+window.addEventListener('resize', setVh);
