@@ -1,97 +1,57 @@
-/*
-background color gradient animation adapted from code by Manuel Pinto:
-https://codepen.io/P1N2O/pen/pyBNzX
-
-with rotation animation adapted from code by Prince:
-https://stackoverflow.com/a/75648103
-*/
-@property --angle1 {
-    syntax: "<angle>";
-    initial-value: 0deg;
-}
-
-@property --angle2 {
-    syntax: "<angle>";
-    initial-value: 90deg;
-}
-
-body {
-    background: linear-gradient(
-        var(--angle1),
-        #ffa369 10%,
-        #c4c4c4 40%,
-        #c4c4c4 60%,
-        #6ed9c2 90%
-    );
-    background-size: 300%;
-    animation: gradientRotateSlide 25s ease infinite;
-    animation-direction: normal;
-    height: 100vh;
+html, body {
+    background: rgb(20, 20, 20);
     overflow: hidden;
     margin: 0;
-    z-index: 100;
+    padding: 0;
+    height: 100%;
+    position: relative;
 
     /* text styles */
-    font-family: Helvetica, "Century Gothic", Arial, sans-serif;
+    font-family: "Dosis", sans-serif;
     word-spacing: 2px;
-    line-height: 150%;
+    line-height: 130%;
 }
 
-/* overlay another color gradient going the opposite direction */
-#body2 {
-    background: linear-gradient(
-        var(--angle2),
-        #fff94c50 10%,
-        #c4c4c450 40%,
-        #c4c4c450 60%,
-        #004ff950 90%
-    );
-    background-size: 400%;
-    animation: gradientRotateSlide 40s ease infinite;
-    animation-direction: reverse;
+.bg-svg {
+    position: absolute;
+    z-index: 0;
+}
+
+svg {
+    width: 100vw;
     height: 100vh;
-    z-index: 100;
+    opacity: 0;
 }
 
-@keyframes gradientRotateSlide {
-    0% {
-        background-position: left 0% top 50%;
-    }
-    50% {
-        background-position: left 100% top 50%;
-    }
-    100% {
-        background-position: left 0% top 50%;
-    }
-}
-
-/* background overlay fade-in */
-#bg-fade {
-    position: fixed;
-    inset: 0;
-    background: #c4c4c4;
-    animation: fadeOutBg 6s ease forwards;
-    z-index: 200;
-}
-
-@keyframes fadeOutBg {
-    0% { opacity: 1; }
-    100% { opacity: 0; }
+defs path {
+    stroke: white;
+    stroke-width: 2px;
 }
 
 .container {
-    height: 100%;
     position: relative;
-    text-align: center;
-    z-index: 300;
+    min-height: 100vh;
+
+    /* flexbox centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* keeps animated svg inside */
+    overflow: hidden;
 }
 
-.center {
-    margin: 0;
-    position: absolute;
-    top: 30%;
-    left: 0;
-    right: 0;
+.content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    border-radius: 100%;
+    background: radial-gradient( 
+        closest-side,
+        rgba(20, 20, 20, 1) 50%,
+        rgba(20, 20, 20, 0) 95%
+    );
+    padding: 15px 30px;
 }
 
 .group1 {
@@ -106,22 +66,20 @@ body {
 
 h1 {
     font-weight: 300;
-    font-size: 2.5em;
-    color: #212121;
-    text-shadow: 0 0 20px #c4c4c4;
+    font-size: 3em;
+    color: #9effec;
 }
 
 a.icon:link,
 a.icon:visited {
     text-decoration: none;
-    color: #212121;
-    text-shadow: 0 0 10px #c4c4c4;
+    color: #9effec
 }
 
 a.icon:hover,
 a.icon:active {
     text-decoration: none;
-    color: black;
+    color: #4f8076;
 }
 
 .fadeIn {
