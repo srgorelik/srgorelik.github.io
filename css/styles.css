@@ -25,11 +25,11 @@ svg {
 
 defs path {
     stroke: white;
-    stroke-width: 2px;
 }
 
 .container {
     position: relative;
+    
     /* use real viewport height on mobile */
     min-height: calc(var(--vh, 1vh) * 100);
 
@@ -38,7 +38,7 @@ defs path {
     justify-content: center;
     align-items: center;
 
-    /* keeps animated svg inside */
+    /* keep animated svg inside */
     overflow: hidden;
 }
 
@@ -46,13 +46,6 @@ defs path {
     position: relative;
     z-index: 1;
     text-align: center;
-    border-radius: 100%;
-    background: radial-gradient( 
-        closest-side,
-        rgba(20, 20, 20, 1) 50%,
-        rgba(20, 20, 20, 0) 95%
-    );
-    padding: 15px 30px;
 }
 
 .group1 {

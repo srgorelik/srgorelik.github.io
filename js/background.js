@@ -7,9 +7,8 @@ const xmlns = "http://www.w3.org/2000/svg";
 
 // lower GSAP tick rate on touch / small devices to reduce CPU usage
 const isLowPowerOrMobile = window.matchMedia('(pointer: coarse), (max-width: 820px)').matches;
-gsap.ticker.fps(isLowPowerOrMobile ? 30 : 60);
-gsap.ticker.lagSmoothing(0);
-
+gsap.ticker.fps(isLowPowerOrMobile ? 20 : 100);
+// gsap.ticker.lagSmoothing(0);
 
 paths.forEach((p, i) => {
     const clone = p.cloneNode();
@@ -19,21 +18,31 @@ paths.forEach((p, i) => {
     mask.appendChild(clone);
     defs.appendChild(mask);
     p.setAttribute('mask', `url(#id-${i})`);
+
+    // compute length once
+    const L = clone.getTotalLength();
+
+    // set up initial dash state
     gsap.set(clone, {
-        strokeDasharray: () => clone.getTotalLength(),
-        strokeDashoffset: () => clone.getTotalLength()
+        strokeDasharray: L,
+        strokeDashoffset: L
     });
+
+    // shorter, smoother settings for mobile
+    const dur = isLowPowerOrMobile ? 8 : 10;
+    const delayStep = isLowPowerOrMobile ? 0.05 : 0.1;
+
     gsap.to(clone, {
-        duration: 10,
-        delay: i * 0.1,
+        duration: dur,
+        delay: i * delayStep,
         repeat: -1,
-        strokeDashoffset: clone.getTotalLength() * 3,
-        ease: 'power1.inOut'
+        strokeDashoffset: L * 3,
+        ease: 'none'
     });
     gsap.to(p, {
-        duration: 10,
+        duration: dur,
         repeat: -1,
-        strokeDashoffset: clone.getTotalLength() * 0.4,
+        strokeDashoffset: L * 0.4,
         ease: 'none'
     });
 });
