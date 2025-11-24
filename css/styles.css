@@ -11,6 +11,7 @@ html, body {
     font-family: "Dosis", sans-serif;
     word-spacing: 2px;
     line-height: 130%;
+    color: #9effec;
 }
 
 .bg-svg {
@@ -87,14 +88,13 @@ defs path {
 h1 {
     font-weight: 300;
     font-size: 3em;
-    color: #9effec;
 }
 
 a.icon:link,
 a.icon:visited {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='25' width='25' viewBox='0 0 900 900'%3E%3Cpath fill='%23f9d56e' d='M160 320L192 320L192 576L64 576L64 416L96 416L96 384L128 384L128 352L160 352L160 320zM576 416L576 576L448 576L448 320L480 320L480 352L512 352L512 384L544 384L544 416L576 416zM384 128L416 128L416 512L384 512L384 480L256 480L256 512L224 512L224 128L256 128L256 96L288 96L288 64L352 64L352 96L384 96L384 128zM352 192L288 192L288 256L352 256L352 192z' transform='rotate(45)' transform-origin='50%25 50%25' filter='drop-shadow(30px 30px red) drop-shadow(30px -30px red) drop-shadow(-30px 30px red) drop-shadow(-30px -30px red)'/%3E%3C/svg%3E") 12 12, auto;
     text-decoration: none;
-    color: #9effec
+    color: #9effec;
 }
 
 a.icon:hover,
