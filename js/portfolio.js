@@ -3,7 +3,7 @@ jQuery("#gallery")
 		captions: false,
 		lastRow: "hide",
 		rowHeight: 180,
-		margins: 6
+		margins: 8
 	})
 	.on("jg.complete", function () {
 		window.lightGallery(
