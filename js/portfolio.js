@@ -12,6 +12,7 @@ jQuery("#gallery")
 				download: false,
 				mode: 'lg-fade',
 				height: '95%',
+				mousewheel: true,
 				mobileSettings: {
 					controls: false,
 					showCloseIcon: true,
