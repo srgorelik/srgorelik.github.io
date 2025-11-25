@@ -31,7 +31,7 @@ body {
 }
 
 .lg-sub-html a:link, 
-.lg-sub-html a:hover {
+.lg-sub-html a:visited {
 	text-decoration: none;
 	color: white;
 }
