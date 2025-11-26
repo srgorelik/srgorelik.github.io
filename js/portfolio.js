@@ -1,20 +1,17 @@
 $(document).ready(function () {
-    // Save the original gallery HTML so we can reset cleanly
     const originalGalleryHtml = $("#gallery").html();
 
-    // Track whether we're currently in "mobile" mode
-    let isMobile = $(window).width() < 480;
-
-    let lgInstance = null; // lightGallery instance
+    let lastWidth = window.innerWidth || $(window).width();
+    let isMobile = lastWidth < 480;
+    let lgInstance = null;
 
     function initGallery() {
         const rowHeight = isMobile ? 360 : 180;
 
-        // Reset gallery DOM and destroy previous plugins
         $("#gallery")
-            .justifiedGallery('destroy')   // safe even if not initialized yet
-            .off("jg.complete")            // avoid stacking listeners
-            .html(originalGalleryHtml)     // restore original items
+            .justifiedGallery('destroy')
+            .off("jg.complete")
+            .html(originalGalleryHtml)
             .justifiedGallery({
                 captions: false,
                 lastRow: "hide",
@@ -22,7 +19,6 @@ $(document).ready(function () {
                 margins: 8
             })
             .on("jg.complete", function () {
-                // Destroy previous lightGallery instance if any
                 if (lgInstance) {
                     lgInstance.destroy(true);
                 }
@@ -45,17 +41,24 @@ $(document).ready(function () {
             });
     }
 
-    // Initial load
+    // initial load
     initGallery();
 
-    // Re-init ONLY when we cross the 480px breakpoint
     let resizeTimer;
     $(window).on('resize', function () {
+        const currentWidth = window.innerWidth || $(window).width();
+
+        // ignore address-bar resize jitter on mobile
+        if (Math.abs(currentWidth - lastWidth) < 10) {
+            return;
+        }
+        lastWidth = currentWidth;
+
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
-            const newIsMobile = $(window).width() < 480;
+            const newIsMobile = currentWidth < 480;
 
-            // Only rebuild if we switched between mobile/desktop
+            // only rebuild if we *actually* switch categories
             if (newIsMobile !== isMobile) {
                 isMobile = newIsMobile;
                 initGallery();
