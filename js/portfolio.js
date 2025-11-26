@@ -8,7 +8,7 @@ $(document).ready(function () {
     let lgInstance = null; // lightGallery instance
 
     function initGallery() {
-        const rowHeight = isMobile ? 260 : 180;
+        const rowHeight = isMobile ? 360 : 180;
 
         // Reset gallery DOM and destroy previous plugins
         $("#gallery")
