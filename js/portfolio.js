@@ -1,48 +1,65 @@
-function initGallery() {
-	// set row height larger if on small screen
-    let rowHeight = ($(window).width() < 480) ? 360 : 180;
-
-    $("#gallery")
-        .justifiedGallery('destroy') // important: clean reset
-        .empty()                     // required before re-init (keeps DOM sane)
-        .append(window._galleryItems) // restore items
-        .justifiedGallery({
-            captions: false,
-            lastRow: "hide",
-            rowHeight: rowHeight,
-            margins: 8
-        })
-        .on("jg.complete", function () {
-            lightGallery(
-                document.getElementById("gallery"), {
-                    plugins: [lgZoom],
-                    download: false,
-                    mode: 'lg-fade',
-                    height: '95%',
-                    mousewheel: true,
-                    mobileSettings: {
-                        controls: false,
-                        showCloseIcon: true,
-                        download: false,
-                        rotate: false
-                    }
-                }
-            );
-        });
-}
-
 $(document).ready(function () {
-    // store original content to re-insert on re-init
-    window._galleryItems = $("#gallery").children().clone();
+    // Save the original gallery HTML so we can reset cleanly
+    const originalGalleryHtml = $("#gallery").html();
 
+    // Track whether we're currently in "mobile" mode
+    let isMobile = $(window).width() < 650;
+
+    let lgInstance = null; // lightGallery instance
+
+    function initGallery() {
+        const rowHeight = isMobile ? 260 : 180;
+
+        // Reset gallery DOM and destroy previous plugins
+        $("#gallery")
+            .justifiedGallery('destroy')   // safe even if not initialized yet
+            .off("jg.complete")            // avoid stacking listeners
+            .html(originalGalleryHtml)     // restore original items
+            .justifiedGallery({
+                captions: false,
+                lastRow: "hide",
+                rowHeight: rowHeight,
+                margins: 8
+            })
+            .on("jg.complete", function () {
+                // Destroy previous lightGallery instance if any
+                if (lgInstance) {
+                    lgInstance.destroy(true);
+                }
+                lgInstance = window.lightGallery(
+                    document.getElementById("gallery"),
+                    {
+                        plugins: [lgZoom],
+                        download: false,
+                        mode: 'lg-fade',
+                        height: '95%',
+                        mousewheel: true,
+                        mobileSettings: {
+                            controls: false,
+                            showCloseIcon: true,
+                            download: false,
+                            rotate: false
+                        }
+                    }
+                );
+            });
+    }
+
+    // Initial load
     initGallery();
 
-    // debounce resize handler (smooth and efficient)
+    // Re-init ONLY when we cross the 480px breakpoint
     let resizeTimer;
     $(window).on('resize', function () {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(function () {
-            initGallery();
-        }, 250);
+            const newIsMobile = $(window).width() < 480;
+
+            // Only rebuild if we switched between mobile/desktop
+            if (newIsMobile !== isMobile) {
+                isMobile = newIsMobile;
+                initGallery();
+            }
+        }, 200);
     });
 });
