@@ -1,4 +1,4 @@
-// background effect by Louis Hoebregts, source: 
+// adapted from CodePen by Louis Hoebregts: 
 // https://codepen.io/Mamboleoo/pen/dypZQGo
 
 const paths = document.querySelectorAll('path');
