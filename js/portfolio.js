@@ -3,7 +3,7 @@ $(document).ready(function () {
     const originalGalleryHtml = $("#gallery").html();
 
     // Track whether we're currently in "mobile" mode
-    let isMobile = $(window).width() < 650;
+    let isMobile = $(window).width() < 480;
 
     let lgInstance = null; // lightGallery instance
 
