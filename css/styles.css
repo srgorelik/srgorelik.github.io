@@ -22,7 +22,6 @@ html, body {
 svg {
     width: 100vw;
     height: 100vh;
-    opacity: 0;
 }
 
 defs path {
@@ -73,7 +72,7 @@ defs path {
 .tooltip-text {
     color: #4f8076;
     position: absolute;
-    padding-top: 12px;
+    padding-top: 32px;
     display: none;
     left: 25%;
     transform: translateX(-50%);
@@ -128,59 +127,23 @@ a.iconTextPair:active {
 }
 
 @media only screen and (max-width: 480px) {
+
+    svg {
+        height: 125vh;
+    }
     .links {
         display: flex;
         flex-direction: column;
-        /* text-align: unset; */
-        /* width: 100%; */
-        margin: 0 auto;
-        gap: 14px;
+        gap: 8px;
         /* border: 1px solid red; */
     }
 
     .tooltip-anchor {
         display: grid;
-        /* justify-items: center; */
-        /* align-items: center; */
-        /* width: 100%; */
+        justify-items: right;
+        width: 100%;
         /* border: 1px solid green; */
     }
-
-    .linkA {
-        justify-items: left;
-        width: 90%;
-        margin: 0 auto;
-   }
-
-    .linkB {
-        justify-items: left;
-        width: 80%;
-        margin: 0 auto;
-   }
-
-    .linkC {
-        justify-items: left;
-        width: 70%;
-        margin: 0 auto;
-   }
-
-    .linkD {
-        justify-items: left;
-        width: 60%;
-        margin: 0 auto;
-   }
-
-    .linkE {
-        justify-items: left;
-        width: 50%;
-        margin: 0 auto;
-   }
-
-    .linkF {
-        justify-items: left;
-        width: 40%;
-        margin: 0 auto;
-   }
 
     .group1,
     .group2 {
@@ -199,7 +162,7 @@ a.iconTextPair:active {
         display: inline-block;
         position: unset;
         padding-top: unset;
-        padding-left: 8px;
+        padding-right: 12px;
         transform: unset;
         color: #9effec;
         /* border: 1px solid white; */
