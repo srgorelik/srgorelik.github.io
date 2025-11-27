@@ -19,6 +19,7 @@ body {
 	padding-bottom: 60px;
 	color: #c2c2c2;
 	width: 90%;
+	line-height: 140%;
 	margin: 0 auto;
 }
 
@@ -48,16 +49,16 @@ body {
 .bottom-text a:link, 
 .bottom-text a:visited {
 	text-decoration: none;
-	color: white;
+	color: #9effec;
 }
 
 .lg-sub-html a:hover, 
 .lg-sub-html a:active,
 .bottom-text a:hover, 
-.bottom-text a:active  {
+.bottom-text a:active {
 	cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='25' width='25' viewBox='0 0 900 900'%3E%3Cpath fill='%23f9d56e' d='M160 320L192 320L192 576L64 576L64 416L96 416L96 384L128 384L128 352L160 352L160 320zM576 416L576 576L448 576L448 320L480 320L480 352L512 352L512 384L544 384L544 416L576 416zM384 128L416 128L416 512L384 512L384 480L256 480L256 512L224 512L224 128L256 128L256 96L288 96L288 64L352 64L352 96L384 96L384 128zM352 192L288 192L288 256L352 256L352 192z' transform='rotate(45)' transform-origin='50%25 50%25' filter='drop-shadow(30px 30px red) drop-shadow(30px -30px red) drop-shadow(-30px 30px red) drop-shadow(-30px -30px red)'/%3E%3C/svg%3E") 18 7, auto;
 	text-decoration: none;
-	color: #9effec;
+	color: white;
 }
 
 .main-container {
@@ -88,13 +89,14 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
+
 	.header h1 {
 		padding: 20px 0;
 		font-size: xx-large;
 	}
+
 	.bottom-text {
 		font-size: larger;
-		line-height: 130%;
 		width: 80%;
 	}
 }
