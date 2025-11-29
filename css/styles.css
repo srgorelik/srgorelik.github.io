@@ -121,6 +121,11 @@ a.iconTextPair:active {
   }
 }
 
+.fadeIn {
+    animation: fadeIn ease 1s;
+    animation-iteration-count: 1;
+}
+
 .fadeInAndGrow {
     animation: grow ease 1s, fadeIn ease 1s;
     animation-iteration-count: 1;

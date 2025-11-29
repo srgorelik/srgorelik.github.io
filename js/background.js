@@ -8,7 +8,7 @@ const xmlns = "http://www.w3.org/2000/svg";
 // lower GSAP tick rate on touch / small devices to reduce CPU usage
 const isLowPowerOrMobile = window.matchMedia('(pointer: coarse), (max-width: 820px)').matches;
 gsap.ticker.fps(isLowPowerOrMobile ? 20 : 100);
-// gsap.ticker.lagSmoothing(0);
+gsap.ticker.lagSmoothing(0);
 
 paths.forEach((p, i) => {
     const clone = p.cloneNode();
