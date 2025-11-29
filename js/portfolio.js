@@ -6,7 +6,7 @@ $(document).ready(function () {
     let lgInstance = null;
 
     function initGallery() {
-        const rowHeight = isMobile ? 360 : 180;
+        const rowHeight = isMobile ? 360 : 160;
 
         $("#gallery")
             .justifiedGallery('destroy')
@@ -16,7 +16,7 @@ $(document).ready(function () {
                 captions: false,
                 lastRow: "hide",
                 rowHeight: rowHeight,
-                margins: 8
+                margins: 20
             })
             .on("jg.complete", function () {
                 if (lgInstance) {
@@ -30,6 +30,7 @@ $(document).ready(function () {
                         mode: 'lg-fade',
                         height: '95%',
                         mousewheel: true,
+                        actualSize: false,
                         mobileSettings: {
                             controls: false,
                             showCloseIcon: true,
