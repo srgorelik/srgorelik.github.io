@@ -26,6 +26,7 @@ $(document).ready(function () {
                     document.getElementById("gallery"),
                     {
                         plugins: [lgZoom, lgFullscreen],
+                        speed: 600,
                         download: false,
                         mode: 'lg-fade',
                         height: '95%',
