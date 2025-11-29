@@ -25,7 +25,7 @@ $(document).ready(function () {
                 lgInstance = window.lightGallery(
                     document.getElementById("gallery"),
                     {
-                        plugins: [lgZoom],
+                        plugins: [lgZoom, lgFullscreen],
                         download: false,
                         mode: 'lg-fade',
                         height: '95%',
@@ -35,7 +35,8 @@ $(document).ready(function () {
                             controls: false,
                             showCloseIcon: true,
                             download: false,
-                            rotate: false
+                            rotate: false,
+                            fullScreen: false
                         }
                     }
                 );

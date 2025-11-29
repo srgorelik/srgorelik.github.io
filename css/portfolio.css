@@ -14,6 +14,18 @@ body {
 	margin-bottom: 60px;
 }
 
+.gallery-item {
+	overflow: hidden;
+}
+
+.gallery-item img {
+	transition: transform 0.8s ease-in-out !important;
+}
+
+.gallery-item img:hover {
+	transform: scale(1.1);
+}
+
 .bottom-text {
 	text-align: center;
 	padding-bottom: 60px;
@@ -98,5 +110,9 @@ body {
 	.bottom-text {
 		font-size: larger;
 		width: 80%;
+	}
+
+	.lg-fullscreen {
+		display: none;
 	}
 }
