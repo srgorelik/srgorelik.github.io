@@ -28,4 +28,4 @@ downsample.image <- function(f.in, sizes = c(400, 600)) {
 	}
 }
 
-catch <- lapply(imgs, downsample.image)
+catch <- lapply(imgs, downsample.image, sizes = c(600))
