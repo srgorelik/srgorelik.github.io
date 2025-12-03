@@ -12,7 +12,7 @@ downsample.image <- function(f.in, sizes = c(400, 600)) {
 	f.ext <- tools::file_ext(f.in)
 
 	# first convert input to png
-	if (f.ext != 'png') {
+	if (f.ext != 'png' & f.ext != 'gif') {
 		f.png <- gsub(f.ext, 'png', f.in)
 		image_write(img, path = f.png, format = 'png')
 		unlink(f.in)
@@ -23,8 +23,10 @@ downsample.image <- function(f.in, sizes = c(400, 600)) {
 		img.scaled <- image_scale(img, paste0(size, 'x'))
 		dir.out <- paste0('img/p', size)
 		dir.create(dir.out, recursive = T, showWarnings = F)
-		f.out <- paste0(dir.out, '/', f.name, '_', size, '.png')
-		image_write(img.scaled, path = f.out, format = 'png')
+		f.out <- paste0(dir.out, '/', f.name, '_', size, '.', f.ext)
+		if (!file.exists(f.out)) {
+			image_write(img.scaled, path = f.out, format = f.ext)
+		}
 	}
 }
 
